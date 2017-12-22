@@ -1,0 +1,44 @@
+﻿<HTML>
+<body>
+
+<script>
+	function onClick(event){
+		//alert ('onClick: x='+event.offsetX+' y='+event.offsetY);
+		ctx.fillRect(event.offsetX, event.offsetY, 1, 1);	
+	}
+</script>
+
+<canvas id='lab01' height = '100' width = '100'>
+	<script>
+		var canvas = document.getElementById('lab01');
+		var ctx = canvas.getContext('2d');
+
+		ctx.fillStyle = '#00aa00';		
+		ctx.fillRect(20,20,50,50);
+		ctx.fillStyle = '#aa0000';
+		ctx.fillRect(30,30,50,50);
+
+		var array = new Array(100);
+		
+		for (i = 0; i < 100; i++){
+			array[i] = 1;
+		}
+		
+		for (i = 20; i < 80; i++){
+			array[i] = 0;
+		}
+
+		ctx.fillStyle = '#0000aa'	
+
+		for (i = 0; i < 100; i++){
+			if (array[i] == 1){
+				ctx.fillRect(i, i, 1, 1);
+			} 
+		}
+
+		canvas.addEventListener('click', onClick);
+	</script>
+</canvas>
+
+</body>
+</HTML>
